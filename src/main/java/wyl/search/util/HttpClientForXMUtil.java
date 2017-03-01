@@ -1,17 +1,5 @@
 package wyl.search.util;
 
-import java.nio.charset.CodingErrorAction;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-
 import org.apache.http.Consts;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
@@ -20,11 +8,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.config.ConnectionConfig;
-import org.apache.http.config.MessageConstraints;
-import org.apache.http.config.Registry;
-import org.apache.http.config.RegistryBuilder;
-import org.apache.http.config.SocketConfig;
+import org.apache.http.config.*;
 import org.apache.http.conn.socket.ConnectionSocketFactory;
 import org.apache.http.conn.socket.PlainConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
@@ -36,9 +20,19 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+import java.nio.charset.CodingErrorAction;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 
-public class HttpClientUtil {
+public class HttpClientForXMUtil {
 	private static final String encoding="UTF-8";
 	private final static int connectTimeout = 40000;
 	
@@ -147,6 +141,9 @@ public class HttpClientUtil {
 		HttpGet get = new HttpGet(url_str);
 		get.setConfig(requestConfig);
 		get.setHeader("User-Agent","Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1");
+		get.setHeader("Host","api.xiami.com");
+		get.setHeader("Referer","https://h.xiami.com/index.html?f=&from=");
+		get.setHeader("Cookie","_xiamitoken=53dad51c07768bc557e7f4a61b783549; cna=1f0qEfUzmz4CAWonyC8hZi/A; OUTFOX_SEARCH_USER_ID_NCOO=1771049346.7125103; gid="+SysTimeUtil.getSystemTime()+"35063; join_from=1zufSNtP6D010%2FjCCA; _unsign_token=64f3c7295f8647f2a18a2e1480372620; user_from=1; is_spider=https%3A//www.baidu.com/link%3Furl%3DnJ4qhUFethMV1rMCOOD9S8X-lTelmk1nxfcX6bOdvGS%26wd%3D%26eqid%3D9148d78a000026d60000000358b65a99; isg=Aq-vcEvjK5DXGy-s6I5epShnPsPTw6WAUMKd78E8S54lEM8SySSTxq3G4LrR; l=AgoK4jNXDN9BlX-DXjY-e0J02uus-45V");
 		try {
 			CloseableHttpResponse response = httpclient.execute(get);
 			//System.out.println(response.getStatusLine().getStatusCode());
@@ -234,4 +231,8 @@ public class HttpClientUtil {
 		
 	}
 
+	public static void main(String[] args){
+		String url = "https://api.xiami.com/web?v=2.0&app_key=1&key=水木年华&page=1&limit=20&_ksTS=1488345795145_62&r=search/songs";
+		System.out.println(HttpClientForXMUtil.doGet(url));
+	}
 }
