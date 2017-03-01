@@ -279,7 +279,7 @@ public class SearchMusicUtil {
                     music.setMusicName(element.getElementsByTag("em").get(0).html());
                 }
                 music.setPlatCode("baidu");
-                music.setAlbumname("null");
+                music.setAlbumname("");
                 music.setHash(element.attr("data-sid"));
                 music.setInterval(-1);
                 musicList.add(music);

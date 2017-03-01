@@ -37,10 +37,10 @@ public class SearchController {
             return result;
         }
         // 判断页码
-        if(CommonUtil.isBlank(page) || CommonUtil.isNumber(page)){
+        if(CommonUtil.isBlank(page) || !CommonUtil.isNumber(page)){
             page = "1";
         }
-        if(CommonUtil.isBlank(pageSize) || CommonUtil.isNumber(pageSize)){
+        if(CommonUtil.isBlank(pageSize) || !CommonUtil.isNumber(pageSize)){
             pageSize = "20";
         }
 
