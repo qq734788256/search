@@ -35,4 +35,7 @@
         <filter-name>characterEncode</filter-name>
         <url-pattern>*.smc</url-pattern>
     </filter-mapping>
+    <error-page>
+        <location>/error.smc</location>
+    </error-page>
 </web-app>
