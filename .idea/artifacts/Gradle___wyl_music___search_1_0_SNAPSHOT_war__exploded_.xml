@@ -12,18 +12,19 @@
           <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Gradle: com.alibaba:fastjson:1.2.17" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.3.2.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.3.2.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.3.2.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.3.2.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.2.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.3.2.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.3.2.RELEASE" />
-          <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
-          <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpclient:4.5.2" />
-          <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpcore:4.4.4" />
           <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.9" />
+          <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpcore:4.4.4" />
+          <element id="library" level="project" name="Gradle: org.apache.httpcomponents:httpclient:4.5.2" />
+          <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.3.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.3.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.3.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.3.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.3.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.3.2.RELEASE" />
+          <element id="library" level="project" name="Gradle: com.alibaba:fastjson:1.2.17" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.8.3/65fd012581ded67bc20945d85c32b4598c3a9cf1/jsoup-1.8.3.jar" />
         </element>
       </element>
       <element id="directory" name="META-INF">
