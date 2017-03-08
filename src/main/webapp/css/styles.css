@@ -230,3 +230,12 @@ p.notFound{
 #more:hover{
 	background-position:left bottom;
 }
+#notice{
+	background-color: #ffffcc;
+	width: 100%;
+	height: 30px;
+	color: #FF0000;
+	text-align: center;
+	line-height: 30px;
+
+}

@@ -52,22 +52,18 @@ public class SearchController {
         } else {
             switch (plat) {
                 case "kugou":
-                    System.out.println("kugou");
                     musicGroup = SearchMusicUtil.getKugouMusics(key, page, pageSize);
                     musicGroups.add(musicGroup);
                     break;
                 case "qq":
-                    System.out.println("qq");
                     musicGroup = SearchMusicUtil.getQQMusics(key, page, pageSize);
                     musicGroups.add(musicGroup);
                     break;
                 case "xiami":
-                    System.out.println("xiami");
                     musicGroup = SearchMusicUtil.getXiaMiMusics(key, page, pageSize);
                     musicGroups.add(musicGroup);
                     break;
                 case "baidu":
-                    System.out.println("baidu");
                     musicGroup = SearchMusicUtil.getBaiDuMusics(key, page, pageSize);
                     musicGroups.add(musicGroup);
                     break;

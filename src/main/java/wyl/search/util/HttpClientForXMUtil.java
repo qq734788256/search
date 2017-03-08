@@ -103,7 +103,6 @@ public class HttpClientForXMUtil {
 		    CloseableHttpResponse response = httpclient.execute(post);
 		    
 		    try {
-		    	System.out.println(response.getStatusLine().getStatusCode());
 			    HttpEntity entity = response.getEntity();
 			    try {
 					if(entity != null){
@@ -130,7 +129,6 @@ public class HttpClientForXMUtil {
 	
 
 	public static String doGet(String url_str) {
-		System.out.println(url_str);
 		String responseString = null;
 	    RequestConfig requestConfig = RequestConfig.custom()
 	    		.setSocketTimeout(connectTimeout)
@@ -232,7 +230,5 @@ public class HttpClientForXMUtil {
 	}
 
 	public static void main(String[] args){
-		String url = "https://api.xiami.com/web?v=2.0&app_key=1&key=水木年华&page=1&limit=20&_ksTS=1488345795145_62&r=search/songs";
-		System.out.println(HttpClientForXMUtil.doGet(url));
 	}
 }

@@ -31,6 +31,5 @@ public class MD5 {
 	}
 
 	public static void main(String agrs[]) {
-		System.out.println(MD5.parse("wangyunlong"));
 	}
 }

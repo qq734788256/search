@@ -24,5 +24,18 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 	<context:component-scan base-package="wyl.search.handle" />
-
+	<!--  mvc拦截器  -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="wyl.search.interceptor.IpInterceptor">
+				<property name="ips">
+					<list>
+						<value>0:0:0:0:0:0:0:1</value>
+						<value>192.168.2.72</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>

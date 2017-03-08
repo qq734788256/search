@@ -6,8 +6,10 @@
   <title>音乐</title>
 </head>
 <body>
+<div id="notice">
+  如需使用该网站功能，请联系XXXXXXXXXX
+</div>
 <div id="page">
-
   <div id="searchForm">
     <fieldset>
       <input id="key" type="text" />
@@ -53,12 +55,38 @@
     </div><!--End tabs container-->
   </div><!--End tabs-->
 </div>
+<div id="mplayer" style="display: none">
+  <audio src="http://fs.open.kugou.com/fc643b5b898eb860793f587b6f8b1c1b/58bfa26c/G092/M0A/07/09/nA0DAFiqtgOAJceEABCAZ7ENfDk317.m4a" controls="controls" autoplay="autoplay" loop="loop">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
 <link rel="stylesheet" type="text/css" href="css/styles.css" />
 <link href='css/tabulous.css' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
 <script src="js/script.js"></script>
 <script type="text/javascript" src="js/tabulous.js"></script>
 <script type="text/javascript">
+  function playMSC(type,hashs){
+    if("xiami" == type){
+      $("#mplayer audio").attr("src",hashs);
+    } else {
+      $.ajax({
+        url:'/msc/'+type+'/music.smc?hash='+hashs,
+        method:'GET',
+        dataType:'json',
+        success:function(data){
+          if(data.c == 0){
+            $("#mplayer audio").attr("src",data.music);
+          } else if(data.c == 100){
+            alert(data.m);
+          }
+        },error:function(data){
+
+        }
+      });
+    }
+  }
   function searchMsc(key){
     // 虾米
     $.ajax({
@@ -73,7 +101,7 @@
           $.each(data.musicGroup[0].musics,function(i,n){
             vheight = vheight + 21;
             content = content + "<tr>"+
-                    "<td width='40px' align='center' style='color:black;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>试听</td>"+
+                    "<td width='40px' align='center' style='color:black;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'><label style='color: #CD661D' onclick='playMSC(\"xiami\",\""+n.hash+"\")'>试听</label></td>"+
                     "<td width='130px' style='color: #FF4500;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>"+n.fileName+"</td>"+
                     "<td width='50px' align='right' style='color: #FF4500;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>歌手：</td>"+
                     "<td width='130px' align='left'' style='color: #FF4500;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>"+n.singer+"</td>"+
@@ -82,6 +110,8 @@
           });
           $("#tabs_container").height(vheight);
           $("#xiami table").html(content);
+        } else if(data.c == 100){
+          alert(data.m);
         }
       },error:function(data){
 
@@ -98,7 +128,7 @@
           var content = "";
           $.each(data.musicGroup[0].musics,function(i,n){
             content = content + "<tr>"+
-                    "<td width='40px' align='center' style='color:black;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>试听</td>"+
+                    "<td width='40px' align='center' style='color:black;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'><label style='color: #CD661D' onclick='playMSC(\"qq\",\""+n.hash+"\")'>试听</label></td>"+
                     "<td width='130px' style='color: #FF4500;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>"+n.fileName+"</td>"+
                     "<td width='50px' align='right' style='color: #FF4500;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>歌手：</td>"+
                     "<td width='130px' align='left'' style='color: #FF4500;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>"+n.singer+"</td>"+
@@ -122,7 +152,7 @@
           var content = "";
           $.each(data.musicGroup[0].musics,function(i,n){
             content = content + "<tr>"+
-                    "<td width='40px' align='center' style='color:black;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>试听</td>"+
+                    "<td width='40px' align='center' style='color:black;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'><label style='color: #CD661D' onclick='playMSC(\"kugou\",\""+n.hash+"\")'>试听</label></td>"+
                     "<td width='130px' style='color: #FF4500;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>"+n.fileName+"</td>"+
                     "<td width='50px' align='right' style='color: #FF4500;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>歌手：</td>"+
                     "<td width='130px' align='left'' style='color: #FF4500;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>"+n.singer+"</td>"+
@@ -146,7 +176,7 @@
           var content = "";
           $.each(data.musicGroup[0].musics,function(i,n){
             content = content + "<tr>"+
-                    "<td width='40px' align='center' style='color:black;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>试听</td>"+
+                    "<td width='40px' align='center' style='color:black;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'><label style='color: #CD661D' onclick='playMSC(\"baidu\",\""+n.hash+"\")'>试听</label></td>"+
                     "<td width='130px' style='color: #FF4500;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>"+n.fileName+"</td>"+
                     "<td width='50px' align='right' style='color: #FF4500;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>歌手：</td>"+
                     "<td width='130px' align='left'' style='color: #FF4500;overflow: hidden; text-overflow:ellipsis;white-space: nowrap;'>"+n.singer+"</td>"+

@@ -109,8 +109,7 @@ public class HttpClientUtil {
 		    CloseableHttpResponse response = httpclient.execute(post);
 		    
 		    try {
-		    	System.out.println(response.getStatusLine().getStatusCode());
-			    HttpEntity entity = response.getEntity();
+		    	HttpEntity entity = response.getEntity();
 			    try {
 					if(entity != null){
 						String str = EntityUtils.toString(entity, encoding);						
@@ -136,7 +135,6 @@ public class HttpClientUtil {
 	
 
 	public static String doGet(String url_str) {
-		System.out.println(url_str);
 		String responseString = null;
 	    RequestConfig requestConfig = RequestConfig.custom()
 	    		.setSocketTimeout(connectTimeout)

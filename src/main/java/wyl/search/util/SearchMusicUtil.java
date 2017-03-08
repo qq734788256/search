@@ -236,7 +236,8 @@ public class SearchMusicUtil {
                     music.setSinger(musicInfo.get("artist_name").toString());
                     music.setAlbumname(musicInfo.get("album_name").toString());
                     String path = musicInfo.get("listen_file").toString();
-                    music.setHash(MD5.parse(path));
+//                    music.setHash(MD5.parse(path));
+                    music.setHash(path);
                     music.setInterval(-1);
                     musicList.add(music);
                 }

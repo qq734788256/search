@@ -19,4 +19,13 @@ public class SystemController {
         result.setM("服务异常");
         return result;
     }
+
+    @RequestMapping("/unknown")
+    @ResponseBody
+    public BaseResult unknown(){
+        BaseResult result = new BaseResult();
+        result.setC(100);
+        result.setM("对不起，您未开通权限！");
+        return result;
+    }
 }
