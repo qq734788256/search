@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id="notice">
-  如需使用该网站功能，请联系XXXXXXXXXX
+  如需使用该网站功能，请联系XXXXXXXXXX    PS:未提供分页搜索，尽量选择虾米或酷狗平台
 </div>
 <div id="page">
   <div id="searchForm">
